@@ -1,0 +1,45 @@
+Traceback (most recent call last):
+  File "C:\Users\Acer\Downloads\roseeai\rosee-ai\rosee.py", line 9, in <module>
+    model = AutoModelForCausalLM.from_pretrained("deepseek-ai/deepseek-llm-7b-chat")
+  File "C:\Users\Acer\AppData\Roaming\Python\Python313\site-packages\transformers\models\auto\auto_factory.py", 
+line 573, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Acer\AppData\Roaming\Python\Python313\site-packages\transformers\modeling_utils.py", line 272, 
+in _wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Acer\AppData\Roaming\Python\Python313\site-packages\transformers\modeling_utils.py", line 4317, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path=pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+        commit_hash=commit_hash,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Acer\AppData\Roaming\Python\Python313\site-packages\transformers\modeling_utils.py", line 1182, in _get_resolved_checkpoint_files
+    checkpoint_files, sharded_metadata = get_checkpoint_shard_files(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        _commit_hash=commit_hash,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Acer\AppData\Roaming\Python\Python313\site-packages\transformers\utils\hub.py", line 1117, in get_checkpoint_shard_files
+    cached_filenames = cached_files(
+        pretrained_model_name_or_path,
+    ...<10 lines>...
+        _commit_hash=_commit_hash,
+    )
+  File "C:\Users\Acer\AppData\Roaming\Python\Python313\site-packages\transformers\utils\hub.py", line 517, in cached_files
+    raise EnvironmentError(
+    ...<2 lines>...
+    )
+OSError: deepseek-ai/deepseek-llm-7b-chat does not appear to have files named ('pytorch_model-00001-of-00002.bin', 'pytorch_model-00002-of-00002.bin'). Checkout 'https://huggingface.co/deepseek-ai/deepseek-llm-7b-chat/tree/main'for available files.

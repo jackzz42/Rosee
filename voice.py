@@ -3,7 +3,7 @@ import speech_recognition as sr
 
 def speak(text):
     engine = pyttsx3.init()
-    engine.setProperty("voice", "english+f4")  # American-like female voice
+    engine.setProperty("voice", "english+f4")
     engine.setProperty("rate", 170)
     engine.say(text)
     engine.runAndWait()
@@ -16,4 +16,13 @@ def listen():
     try:
         return r.recognize_google(audio)
     except:
-        return "Sorry, I couldn't understand that."
+        return ""
+
+def wait_for_wake_word(wake_word="hey rosee"):
+    while True:
+        print("Waiting for wake word...")
+        command = listen().lower()
+        if wake_word in command:
+            print("Wake word detected!")
+            speak("Yes?")
+            break

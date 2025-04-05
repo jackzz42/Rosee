@@ -1,8 +1,15 @@
 import random
 
-def get_mood():
-    moods = ["romantic", "angry", "friendly", "caring"]
-    return random.choice(moods)
+def detect_emotion(text):
+    # Later replace this with a neural net model
+    if any(word in text for word in ["love", "miss", "cute", "kiss"]):
+        return "romantic"
+    elif any(word in text for word in ["angry", "mad", "hate"]):
+        return "angry"
+    elif any(word in text for word in ["help", "okay", "hi"]):
+        return "friendly"
+    else:
+        return random.choice(["friendly", "romantic", "caring", "angry"])
 
 def apply_emotion(text, mood):
     if mood == "romantic":
